@@ -31,6 +31,8 @@ public class GamePanel extends JPanel implements Runnable {
 	public Keyboard keyboard = new Keyboard(this);
 	Sound music = new Sound();
 	Sound se = new Sound();
+	UI ui = new UI();
+	CustomCursor newCursor = new CustomCursor(this);
 	Thread gameThread;
 	
 	//ENTIDADES Y OBJETOS
@@ -51,6 +53,8 @@ public class GamePanel extends JPanel implements Runnable {
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyboard);
 		this.setFocusable(true);
+		this.addMouseListener(newCursor);
+	    this.addMouseMotionListener(newCursor);
 
 	}
 	
