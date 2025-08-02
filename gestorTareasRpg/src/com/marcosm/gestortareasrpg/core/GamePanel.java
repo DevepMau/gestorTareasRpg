@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import com.marcosm.gestortareasrpg.utils.ImageUtils;
+
 public class GamePanel extends JPanel implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -31,7 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
 	public Keyboard keyboard = new Keyboard(this);
 	Sound music = new Sound();
 	Sound se = new Sound();
-	UI ui = new UI();
+	ImageUtils ui = new ImageUtils();
 	CustomCursor newCursor = new CustomCursor(this);
 	Thread gameThread;
 	

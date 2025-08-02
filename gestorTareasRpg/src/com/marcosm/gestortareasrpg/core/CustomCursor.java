@@ -10,6 +10,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.marcosm.gestortareasrpg.utils.ImageUtils;
+
 public class CustomCursor implements MouseListener, MouseMotionListener {
 
 	GamePanel gp;
@@ -80,9 +82,9 @@ public class CustomCursor implements MouseListener, MouseMotionListener {
     ////////////////////////////////////////////////////////////////////////////////////
     
     private BufferedImage configureImage(String rutaImagen, int escala) throws IOException {
-        UI uTool = new UI();
+        ImageUtils uTool = new ImageUtils();
         BufferedImage image = ImageIO.read(getClass().getResourceAsStream(rutaImagen + ".png"));
-        return uTool.escalarImagen(image, image.getWidth() / 2 * escala, image.getHeight() / 2 * escala);
+        return uTool.scaleImage(image, image.getWidth() / 2 * escala, image.getHeight() / 2 * escala);
     }
 
 	@Override
