@@ -3,7 +3,7 @@ package com.marcosm.gestortareasrpg.controller;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import com.marcosm.gestortareasrpg.view.GamePanel;
+import com.marcosm.gestortareasrpg.GamePanel;
 
 public class KeyboardController implements KeyListener {
 

@@ -2,8 +2,6 @@ package com.marcosm.gestortareasrpg;
 
 import javax.swing.JFrame;
 
-import com.marcosm.gestortareasrpg.view.GamePanel;
-
 public class Main {
 
 	public static void main(String[] args) {

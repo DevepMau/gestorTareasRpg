@@ -1,8 +1,9 @@
 package com.marcosm.gestortareasrpg.controller;
 
 import java.awt.event.*;
+
+import com.marcosm.gestortareasrpg.GamePanel;
 import com.marcosm.gestortareasrpg.view.CustomCursorView;
-import com.marcosm.gestortareasrpg.view.GamePanel;
 
 public class CustomCursorController implements MouseListener, MouseMotionListener {
 

@@ -1,4 +1,4 @@
-package com.marcosm.gestortareasrpg.view;
+package com.marcosm.gestortareasrpg;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,6 +11,7 @@ import com.marcosm.gestortareasrpg.controller.CustomCursorController;
 import com.marcosm.gestortareasrpg.controller.KeyboardController;
 import com.marcosm.gestortareasrpg.model.SoundManager;
 import com.marcosm.gestortareasrpg.utils.ImageUtils;
+import com.marcosm.gestortareasrpg.view.CustomCursorView;
 
 public class GamePanel extends JPanel implements Runnable {
 
