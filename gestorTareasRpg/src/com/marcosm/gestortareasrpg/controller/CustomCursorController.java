@@ -21,7 +21,7 @@ public class CustomCursorController implements MouseListener, MouseMotionListene
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        CLICK = true;
+        //CLICK = true;
     }
 
     @Override
