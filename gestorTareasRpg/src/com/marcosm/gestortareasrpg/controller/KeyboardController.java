@@ -1,16 +1,18 @@
-package com.marcosm.gestortareasrpg.core;
+package com.marcosm.gestortareasrpg.controller;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Keyboard implements KeyListener {
+import com.marcosm.gestortareasrpg.view.GamePanel;
+
+public class KeyboardController implements KeyListener {
 
 	GamePanel gp;
 	public boolean W, S, A, D, ENTER, ESCAPE;
 	//DEBUG
-	boolean checkDrawTime = false;
+	public boolean checkDrawTime = false;
 	
-	public Keyboard(GamePanel gp) {
+	public KeyboardController(GamePanel gp) {
 		this.gp = gp;
 	}
 

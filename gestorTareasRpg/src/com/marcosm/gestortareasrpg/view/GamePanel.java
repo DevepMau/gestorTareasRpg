@@ -1,4 +1,4 @@
-package com.marcosm.gestortareasrpg.core;
+package com.marcosm.gestortareasrpg.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,6 +7,9 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
+import com.marcosm.gestortareasrpg.controller.CustomCursorController;
+import com.marcosm.gestortareasrpg.controller.KeyboardController;
+import com.marcosm.gestortareasrpg.model.SoundManager;
 import com.marcosm.gestortareasrpg.utils.ImageUtils;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -30,14 +33,15 @@ public class GamePanel extends JPanel implements Runnable {
 	public final int worldHeight = tileSize * maxRowWorld;
 
 	//SISTEMA
-	public Keyboard keyboard = new Keyboard(this);
-	Sound music = new Sound();
-	Sound se = new Sound();
+	public KeyboardController keyboard = new KeyboardController(this);
+	SoundManager music = new SoundManager();
+	SoundManager se = new SoundManager();
 	ImageUtils ui = new ImageUtils();
-	CustomCursor newCursor = new CustomCursor(this);
+	CustomCursorView newCursorView = new CustomCursorView();
+	CustomCursorController newCursorController = new CustomCursorController(this, newCursorView);
 	Thread gameThread;
 	
-	//ENTIDADES Y OBJETOS
+	//PANTALLAS
 
 	//ESTADO DE JUEGO
 	public int gameState;
@@ -55,8 +59,8 @@ public class GamePanel extends JPanel implements Runnable {
 		this.setDoubleBuffered(true);
 		this.addKeyListener(keyboard);
 		this.setFocusable(true);
-		this.addMouseListener(newCursor);
-	    this.addMouseMotionListener(newCursor);
+		this.addMouseListener(newCursorController);
+	    this.addMouseMotionListener(newCursorController);
 
 	}
 	
@@ -118,6 +122,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 		if(gameState == GS_PLAY) {
 			
+			
 		}
 		if(gameState == GS_TITLE) {
 			
@@ -139,7 +144,7 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 		//OTROS
 		else {
-			
+
 		}
 
 		//DEBUG

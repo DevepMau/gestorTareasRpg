@@ -1,4 +1,4 @@
-package com.marcosm.gestortareasrpg.core;
+package com.marcosm.gestortareasrpg.model;
 
 import java.net.URL;
 
@@ -6,12 +6,12 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
-public class Sound {
+public class SoundManager {
 
 	Clip clip;
 	URL[] urlSounds = new URL[30];
 
-	public Sound() {
+	public SoundManager() {
 
 		urlSounds[0] = getClass().getResource("/sonidos/key_sound.wav");
 
