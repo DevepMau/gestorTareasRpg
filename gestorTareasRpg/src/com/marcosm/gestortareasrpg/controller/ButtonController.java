@@ -1,19 +1,16 @@
 package com.marcosm.gestortareasrpg.controller;
 
 import com.marcosm.gestortareasrpg.GamePanel;
-import com.marcosm.gestortareasrpg.model.ButtonModel;
 import com.marcosm.gestortareasrpg.view.ButtonView;
 
 public class ButtonController {
 	
 	GamePanel gp;
-	private ButtonModel model;
     private ButtonView view;
 
-    public ButtonController(ButtonModel model, ButtonView view, GamePanel gp) {
+    public ButtonController(ButtonView view, GamePanel gp) {
     	
         this.gp = gp;
-    	this.model = model;
         this.view = view;
         
     }
@@ -25,7 +22,7 @@ public class ButtonController {
     	
     	onMouseMove(posX, posY);
     	
-    	if(model.isEnable()) {
+    	if(view.getButtonModel().isEnable()) {
     		onMouseClick(posX, posY, isClick);
     	}
     	else {
@@ -36,32 +33,32 @@ public class ButtonController {
 
     public void onMouseMove(int mouseX, int mouseY) {
     	
-        model.setHovered(view.isMouseOver(mouseX, mouseY));
+    	view.getButtonModel().setHovered(view.isMouseOver(mouseX, mouseY));
         
     }
 
     public void onMouseClick(int mouseX, int mouseY, boolean isClick) {
         if (view.isMouseOver(mouseX, mouseY)) {
         	if(isClick) {
-        		model.setPressed(true);
-        		model.setEnable(false);
-                System.out.println("Botón presionado: " + model.getText());
+        		view.getButtonModel().setPressed(true);
+        		view.getButtonModel().setEnable(false);
+                System.out.println("Botón presionado: " + view.getButtonModel().getText());
         	} 
         }
     }
     
     public void resetTimer() {
-		model.setTimer(model.getDelayValue());
-		model.setEnable(true);
+    	view.getButtonModel().setTimer(view.getButtonModel().getDelayValue());
+    	view.getButtonModel().setEnable(true);
 	}
     
     public void runTimerDelay() {
-    	if(model.getTimer() > 0) {
-    		model.setTimer(model.getTimer() - 1);
+    	if(view.getButtonModel().getTimer() > 0) {
+    		view.getButtonModel().setTimer(view.getButtonModel().getTimer() - 1);
     	}
     	else {
     		resetTimer();
-    		model.setPressed(false);
+    		view.getButtonModel().setPressed(false);
     	}
     }
 }

@@ -45,4 +45,10 @@ public class ButtonView {
         return mouseX >= x && mouseX <= x + width &&
                mouseY >= y && mouseY <= y + height;
     }
+    
+    public ButtonModel getButtonModel() {
+    	
+    	return this.model;
+    			
+    }
 }
