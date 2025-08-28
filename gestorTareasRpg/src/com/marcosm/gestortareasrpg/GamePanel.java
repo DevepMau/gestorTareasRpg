@@ -8,10 +8,12 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import com.marcosm.gestortareasrpg.controller.CustomCursorController;
+import com.marcosm.gestortareasrpg.controller.HubMainController;
 import com.marcosm.gestortareasrpg.controller.KeyboardController;
 import com.marcosm.gestortareasrpg.model.SoundManager;
 import com.marcosm.gestortareasrpg.utils.ImageUtils;
 import com.marcosm.gestortareasrpg.view.CustomCursorView;
+import com.marcosm.gestortareasrpg.view.HubMainView;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -39,10 +41,12 @@ public class GamePanel extends JPanel implements Runnable {
 	SoundManager se = new SoundManager();
 	ImageUtils ui = new ImageUtils();
 	CustomCursorView newCursorView = new CustomCursorView();
-	CustomCursorController newCursorController = new CustomCursorController(this, newCursorView);
+	public CustomCursorController newCursorController = new CustomCursorController(this, newCursorView);
 	Thread gameThread;
 	
 	//PANTALLAS
+	HubMainView hubView = new HubMainView(this);
+	HubMainController hubController = new HubMainController(hubView, this);
 
 	//ESTADO DE JUEGO
 	public int gameState;
@@ -123,7 +127,8 @@ public class GamePanel extends JPanel implements Runnable {
 
 		if(gameState == GS_PLAY) {
 			
-			
+			hubController.update();
+
 		}
 		if(gameState == GS_TITLE) {
 			
@@ -146,6 +151,8 @@ public class GamePanel extends JPanel implements Runnable {
 		//OTROS
 		else {
 
+			hubController.draw(g2);
+			
 		}
 
 		//DEBUG
